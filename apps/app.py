@@ -246,10 +246,10 @@ for msg in st.session_state.messages:
                 print(f"audio_path_extracted<{audio_path}>")
                 if os.path.exists(audio_path):
                     st.audio(audio_path)
-                else
+                else:
                     #temporary fix
                     default_audio_path="output/audio-test.mp3"
-                    if os.path.exists(default_audio_path)
+                    if os.path.exists(default_audio_path):
                         st.audio(default_audio_path)
                     else:
                         st.warning(f"Audio file not accessible: <{audio_path}>")
