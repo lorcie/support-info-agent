@@ -6,3 +6,4 @@
 *.gmail-server-credentials.json
 wsl-venv
 .adk
+output
