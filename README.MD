@@ -71,10 +71,6 @@ Application Python Codeset >
 
 ![Support Info Agent Codeset](https://github.com/lorcie/support-info-agent/blob/master/assets/support-info-agent-codebase.png?raw=true)
 
-Google Cloud Shell Editor/Terminal >
-
-![Lorcie Airflight Service Google Clloud Shell Editor/Terminal](https://github.com/lorcie/lorcie-ai-travel-service/blob/master/assets/cloud-shell-codeset.png?raw=true)
-
 ## Application Modules Deploy on Cloud Run <a name="application-modules-deploy-cloud-run"></a>
 
 ### Support Info Agent FastApp backend python on Cloud Run Deployment
