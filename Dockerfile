@@ -22,9 +22,9 @@ COPY multi_tools_agent/prompt /app/multi_tools_agent/prompt
 #COPY multi_tools_agent/tools /app/multi_tools_agent/tools
 
 # Expose API port
-EXPOSE 8000
+EXPOSE 8080
 
 # Run the application
 #CMD ["ddtrace-run", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
 
