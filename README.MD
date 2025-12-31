@@ -13,8 +13,6 @@
 6. [Support Info Agent Executions](#support-info-agent-executions)
 7. [Codeset Files](#codeset-files)
 8. [Application Modules Deploy on Cloud Run](#application-modules-deploy-cloud-run)
-9. [Cleanup Deployed Cloud Run Resources](#cleanup-deployed-cloud-run-resources)
-10. [Take Away](#take-away)
 
 ## Introduction <a name="introduction"></a>
 
