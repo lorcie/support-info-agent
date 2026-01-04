@@ -41,6 +41,8 @@ import os
 import uuid
 import time
 
+from google.cloud import storage
+
 voice_character_list={
     "Xb7hH8MSUJpSbSDYk0k2":"Alice-female,middle-aged,British,confident,news",
     "9BWtsMINqrJLrRacOk9x":"Aria-female,middle-aged,American,expressive,social-media",
@@ -243,16 +245,29 @@ for msg in st.session_state.messages:
             # Handle audio if available
             if "audio_path" in msg and msg["audio_path"]:
                 audio_path = msg["audio_path"]
-                print(f"audio_path_extracted<{audio_path}>")
+                #st.write(f"audio_path_extracted<{audio_path}>")
                 if os.path.exists(audio_path):
                     st.audio(audio_path)
                 else:
-                    #temporary fix
-                    default_audio_path="output/audio-test.mp3"
-                    if os.path.exists(default_audio_path):
-                        st.audio(default_audio_path)
-                    else:
-                        st.warning(f"Audio file not accessible: <{audio_path}>")
+                    #temporary fix : download audio from gcs bucket, either defaut
+                    try:
+                        #st.write(f"download audio from gcs bucket processing")
+                        storage_client = storage.Client()
+                        bucket = storage_client.bucket("support_info_agent_audio_bucket")
+                        blob = bucket.blob(str(audio_path))
+                        destination_file_name = "output/audio-test-download.mp3"
+                        blob.download_to_filename(destination_file_name)
+                        if os.path.exists(destination_file_name):
+                            st.audio(destination_file_name)
+                        else:
+                            st.warning(f"Audio file not accessible: <{destination_file_name}>")
+                    except Exception:
+                        #st.write(f"default audio path processing")
+                        default_audio_path="output/audio-test.mp3"
+                        if os.path.exists(default_audio_path):
+                            st.audio(default_audio_path)
+                        else:
+                            st.warning(f"Audio file not accessible: <{audio_path}>")
 
 last_user_message = ""
 # Input for new messages

@@ -58,10 +58,14 @@ Conversation >
 ![Support Info Agent Conversation](https://github.com/lorcie/support-info-agent/blob/master/assets/support-info-agent-frontend-conversation-remote.png?raw=true)
 
 
-Frontend User Interface Voice Character / Settings >
+Frontend User Interface ElevenLabs Voice Character / Settings >
 
-![Support Info Agent Voice Character and Settings](https://github.com/lorcie/support-info-agent/blob/master/assets/support-info-agent-frontend-voice-character-settings.png?raw=true)
+![Support Info Agent ElevenLabs Voice Character and Settings](https://github.com/lorcie/support-info-agent/blob/master/assets/support-info-agent-frontend-voice-character-settings.png?raw=true)
 
+
+Audio Files Google Cloud Bucket >
+
+![Support Info Agent Audio Files Bucket](https://github.com/lorcie/support-info-agent/blob/master/assets/support-info-agent-google-cloud-storage-audio-bucket.png?raw=true)
 
 ## Codeset Files <a name="codeset-files"></a>
 

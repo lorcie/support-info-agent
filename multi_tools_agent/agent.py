@@ -13,6 +13,7 @@ from google.adk.tools import google_search
 from .prompt.prompt import agent_instruction
 from pathlib import Path
 import uuid
+from google.cloud import storage
 
 # Load environment variables from .env file
 load_dotenv()
@@ -188,6 +189,15 @@ def get_voice_response(text: str, voice_id: str = "JBFqnCBsd6RMkjVDRZzb"):
         )
         save(audio, output_file_data)
         print(f"saved at:`{output_file_data}`")
+        if os.environ["GOOGLE_APPLICATION_CREDENTIALS"] is not None:
+            try:
+                print(f"bucket uploading output file: {output_file_data}")
+                storage_client = storage.Client()
+                bucket = storage_client.bucket("support_info_agent_audio_bucket")
+                blob = bucket.blob(str(output_file_data))
+                blob.upload_from_filename(str(output_file_data))
+            except e:
+                print(f"Error bucket uploading: {e}")
         # Return the path of the saved audio file
         return { "result": {"content":[{"text":f"saved at:{output_file_data}"}]} }
     except APIError as e:
