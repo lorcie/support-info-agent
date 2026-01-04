@@ -13,6 +13,7 @@
 6. [Support Info Agent Executions](#support-info-agent-executions)
 7. [Codeset Files](#codeset-files)
 8. [Application Modules Deploy on Cloud Run](#application-modules-deploy-cloud-run)
+9. [Take Away](#take-away)
 
 ## Introduction <a name="introduction"></a>
 
@@ -137,4 +138,18 @@ gcloud run deploy support-info-agent-frontend-service \
   --set-env-vars="AGENT_APP_NAME=multi_tools_agent" \
   --set-env-vars="GOOGLE_CLOUD_LOCATION=${REGION}"
 ```
+
+## Take Away <a name="take-away"></a>
+
+**ElevenLabs Voice AI** features enable to enhance interaction with end user through :
+- its **ElevenLabs API service** access to convert content in audio
+
+- and also to customize **ElevenLabs Voice effects** thanks to its available Character and various Settings (speed, style, boost,...)
+
+**Google Cloud** technologies enable :
+
+- easy deployment and management with **Google Cloud Run**
+
+- audio data storage and sharing with **Google Cloud Storage Bucket**
+
 
