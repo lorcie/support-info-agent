@@ -87,6 +87,20 @@ export PROJECT_ID=$(gcloud config get-value project)
 export ELEVENLABS_API_KEY=YOUR_ELEVENLABS_API_KEY
 export GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY
 
+export SA_NAME=support-info-agent-sa
+export SERVICE_ACCOUNT="${SA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com"
+
+for Cloud Run Deployment, Google Cloud Storage bucket objects access requires to add special role with following command :
+
+# add gcs role
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+    --member="serviceAccount:${SERVICE_ACCOUNT}" \
+    --role="roles/storage.objectUser"
+
+For local deployment, key generation and export in json format is necessary followed by environment export as follows :
+
+export GOOGLE_APPLICATION_CREDENTIALS=YOUR_GOOGLE_CLOUD_STORAGE_BUCKET_OBJECT_ROLE_KEY.json
+
 echo "cs-venv/" > .gcloudignore
 
 gcloud run deploy support-info-agent-backend-service \
